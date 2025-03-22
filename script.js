@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const storedUser = localStorage.getItem(username);
             
             if (storedUser && storedUser === password) {
-                alert("Login Successful!");
-                errorMessage.textContent = "";
+                localStorage.setItem("loggedInUser", username); // Store active user
+                window.location.href = "dashboard.html"; // Redirect to dashboard
+                // alert("Login Successful!");
+                // errorMessage.textContent = "";
             } else {
                 errorMessage.textContent = "Invalid username or password.";
             }
